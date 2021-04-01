@@ -182,9 +182,3 @@ def makeDB(f):
     out.close()
     return out
     
-
-# f = open('uploads/mock_data.csv')
-# makeDB(f)
-
-# for row in f:
-#     print(row)

@@ -1,5 +1,11 @@
 from flask import Flask
 import os
+import shutil
+
+if os.path.exists('./uploads/'):
+    shutil.rmtree('./uploads')
+
+os.mkdir('./uploads')
 
 UPLOAD_FOLDER = './uploads'
 

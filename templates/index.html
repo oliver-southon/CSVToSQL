@@ -5,15 +5,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
-    <title>Document</title>
+    
 </head>
 <body>
     <div class="container">
-        <nav>nav</nav>
-        <div class="sidebar">sidebar</div>
-        <main>main</main>
-        <div class="ads">sidebar</div>
-        <footer>footer</footer>
+        <nav></nav>
+        <div class="sidebar"></div>
+        <main>
+            <div class="csv">
+                <h1>Convert CSV to DDL</h1>
+                <h3>Upload your CSV file here</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="file" id="csvFile" name="file">
+                    <button type="submit" class="btn-submit" style="vertical-align:middle" value="Upload"><span>Submit</span>
+                </form>
+            </div>
+            <div class="ddl">
+                <textarea name="ddl-output" id="ddl" cols="30" rows="10">
+                    {{ content }}
+                </textarea>
+                <div class="options">
+                    <a class="btn btn-full" href="#" onclick="copyFunction()">Copy</a>
+                    <a class="btn btn-ghost" href="#" onclick="document.getElementById('ddl').value = ''">Clear</a>
+                </div>
+            </div>
+        </main>
+        <div class="ads"></div>
+        <footer></footer>
     </div>
+<script>
+    function copyFunction() {
+        var copyText = document.getElementById("ddl");
+        copyText.select();
+        // copyText.setSelectionRange(0,99999);
+        document.execCommand("copy");
+    }
+</script>
 </body>
 </html>
+
+
